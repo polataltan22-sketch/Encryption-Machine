@@ -71,11 +71,11 @@ int main()
 									printf("ERROR: Key must not contain repeated characters.\n");
 									goto point;
 								}
-								else if(!isalpha(key[i]))
-								{
-									printf("ERROR: Key must contain only alphabetic characters.\n");
-									goto point;
-								}
+						}
+						if(!isalpha(key[i]))
+						{
+							printf("ERROR: Key must contain only alphabetic characters.\n");
+							goto point;
 						}
 					}
 				break;
