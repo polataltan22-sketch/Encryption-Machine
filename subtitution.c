@@ -6,7 +6,7 @@ int main()
 {
 	int h,w,d;
 	int j,r,b,i,a = 0,s = 0;
-	int c=0, p=0,t, l =0,m,n;
+	int c=0, p=0,t,m;
 	
 	char alphaL[26];
 	char alphaU[26];
@@ -107,7 +107,7 @@ int main()
 								msg[b] = tolower(key[c]);
 							}
 						}
-				}
+					}
 				printf("\nThe cipher text is: %s", msg);
 				printf("\n");
 				break;
@@ -117,32 +117,28 @@ int main()
 					printf("ERROR: Please enter the key first.\n");
 					break;
 				}
-				else	
+				else
 				printf("\nEnter a cipher text (max 100 characters): ");
 				scanf("\n");
 				gets(msg1);
 				p = strlen(msg1);
-				
-				for(m = 0; m < 26;m++)
-					alphaU[m] = 65 + m;
-				for(n = 0; n < 26; n++)
-					alphaL[n] = 97 + n;
-					
 				for(t = 0; t < p; t++)
-				{
-					if(isupper(msg1[t]))
-					{
-						msg1[t] = msg1[t] - 65;
-						l = msg1[t];
-						msg1[t] = alphaU[l];
-					}
-					else
-					{
-						msg1[t] = msg1[t] - 97;
-						l = msg[t];
-						msg1[t] = alphaL[l];
-					}			
-				}
+				    {
+				        if(isalpha(msg1[t]))
+				        {
+				            for(m = 0; m < 26; m++)
+				            {
+				                if(toupper(msg1[t]) == toupper(key[m]))
+				                {
+				                    if(isupper(msg1[t]))
+				                        msg1[t] = 65 + m;
+				                    else
+				                        msg1[t] = 97 + m;
+				                    break;
+				                }
+				            }
+				        }            
+				    }
 				printf("\nThe plain text is: %s", msg1);
 				printf("\n");
 				break;
