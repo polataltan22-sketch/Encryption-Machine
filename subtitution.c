@@ -8,8 +8,6 @@ int main()
 	int j,r,b,i,a = 0,s = 0;
 	int c=0, p=0,t,m;
 	
-	char alphaL[26];
-	char alphaU[26];
 	char key[26];
 	char msg[100];
 	char msg1[100];
