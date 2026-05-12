@@ -63,15 +63,12 @@ int main()
 				else
 					for(i = 0; i < 26; i++)
 					{
-						if(i > 0)
-						{
-							for(r=0;r < i; r++)
-								if(key[i] == key[r - 1])
-								{
-									printf("ERROR: Key must not contain repeated characters.\n");
-									goto point;
-								}
-						}
+						for(r=0;r < i; r++)
+							if(key[i] == key[r - 1] || key[0] == key[1])
+							{
+								printf("ERROR: Key must not contain repeated characters.\n");
+								goto point;
+							}
 						if(!isalpha(key[i]))
 						{
 							printf("ERROR: Key must contain only alphabetic characters.\n");
